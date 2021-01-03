@@ -1,0 +1,45 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.0.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.6.RELEASE'
+    id 'java'
+}
+
+group = 'me.laehyuk'
+version = '0.0.1-SNAPSHOT'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    dependencies {
+        implementation (
+                'org.springframework.boot:spring-boot-starter'
+        )
+        compileOnly(
+                'org.projectlombok:lombok:1.18.12'
+        )
+        annotationProcessor(
+                'org.springframework.boot:spring-boot-starter',
+                'org.projectlombok:lombok:1.18.12'
+        )
+        testImplementation (
+                'org.springframework.boot:spring-boot-starter-test',
+                'org.junit.jupiter:junit-jupiter-api:5.4.2', 
+                'org.junit.jupiter:junit-jupiter-engine:5.4.2',
+                'org.junit.platform:junit-platform-commons:1.4.2'
+        )
+    }
+}

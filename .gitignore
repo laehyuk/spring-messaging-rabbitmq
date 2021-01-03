@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/build/
+/rabbitmq-consumer/build/
+/rabbitmq-consumer/build/classes/java/main/
+/rabbitmq-producer/build/
+/rabbitmq-producer/build/classes/java/main/
+/.idea
+/gradle
